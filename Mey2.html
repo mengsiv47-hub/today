@@ -1,0 +1,213 @@
+Meng ., [2/14/2026 3:16 PM]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mey Mey & Meng Meng 💕</title>
+<style>
+/* --- Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background: radial-gradient(circle at top, #ffb6c1, #ff69b4);
+    overflow-x: hidden;
+    color: white;
+    position: relative;
+}
+
+/* --- Title --- */
+h1 {
+    margin-top: 5vh;
+    font-size: 6vw;
+    text-align: center;
+    text-shadow: 2px 2px 5px #ff69b4;
+}
+
+/* --- Photo frames --- */
+.photo-frame {
+    width: 40vw; /* responsive width */
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 5px solid #ff4da6;
+    box-shadow: 0 0 15px #ffb6c1;
+    position: absolute;
+    transition: transform 0.3s;
+}
+
+.photo-frame:hover {
+    transform: scale(1.08) rotate(-2deg);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Decorations on photos */
+.photo-decor {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    font-size: 5vw;
+    animation: floatDecor 3s infinite alternate;
+}
+
+@keyframes floatDecor {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1.5vh); }
+}
+
+/* Floating cats */
+.cat {
+    position: absolute;
+    font-size: 8vw;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    font-size: 6vw;
+    pointer-events: none;
+    user-select: none;
+    animation: floatHeart 3s linear forwards;
+}
+
+@keyframes floatHeart {
+    from { transform: translateY(0) scale(1); opacity: 1; }
+    to { transform: translateY(-20vh) scale(1.5); opacity: 0; }
+}
+
+/* Love notes */
+.love-note {
+    position: absolute;
+    width: 40vw;
+    max-width: 250px;
+    padding: 1em;
+    background: rgba(255,105,180,0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 10px #ff4da6;
+    font-size: 3.5vw;
+    line-height: 1.3;
+    text-align: center;
+    animation: floatDecor 4s infinite alternate;
+}
+
+/* Valentine corner */
+.valentine-corner {
+    position: absolute;
+    top: 15vh;
+    right: 5vw;
+    width: 35vw;
+    max-width: 200px;
+    text-align: center;
+}
+
+.valentine-corner .balloon {
+    font-size: 8vw;
+    animation: floatDecor 3s infinite alternate;
+}
+
+.valentine-corner .love-text {
+    margin-top: 1vh;
+    font-size: 3.5vw;
+    line-height: 1.3;
+}
+</style>
+</head>
+<body>
+
+<h1>Mey Mey & Meng Meng 💖</h1>
+
+<!-- Scattered photos -->
+<div class="photo-frame" style="top: 12vh; left: 5vw;">
+    <img src="pic1.jpg" alt="Us together 1">
+    <div class="photo-decor">💖</div>
+</div>
+
+<div class="photo-frame" style="top: 25vh; left: 40vw; transform: rotate(-5deg);">
+    <img src="pic2.jpg" alt="Us together 2">
+    <div class="photo-decor">😻</div>
+</div>
+
+<div class="photo-frame" style="top: 10vh; left: 70vw; transform: rotate(7deg);">
+    <img src="pic3.jpg" alt="Us together 3">
+    <div class="photo-decor">🌸</div>
+</div>
+
+<!-- Love notes -->
+<div class="love-note" style="top: 50vh; left: 10vw;">
+    💌 Since 18 March 2024, you've been my Cutiee! <br>
+    Every moment with you makes me smile 😘<br>
+    I love you more than words can say 💖
+</div>
+
+<div class="love-note" style="top: 55vh; left: 55vw;">
+    🌸 You’re my happiness, my heart, my everything.<br>
+    I can’t wait for all our dreams together 😻
+</div>
+
+<!-- Valentine corner -->
+<div class="valentine-corner">
+    <div class="balloon">🎈❤️🎈</div>
+    <div class="love-text">
+        Forever yours, Mey Mey 💖<br>
+        Happy Valentine’s Day! 😘
+    </div>
+</div>
+
+<script>
+// Floating cats
+function createCats() {
+    for (let i = 0; i < 15; i++) {
+        const cat = document.createElement("div");
+        cat.classList.add("cat");
+        cat.innerHTML = "🐱";
+        cat.style.left = Math.random() * 90 + "vw";
+        cat.style.top = Math.random() * 90 + "vh";
+        document.body.appendChild(cat);
+    }
+}
+
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.
+
+
+classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 90 + "vw";
+    heart.style.top = Math.random() * 90 + "vh";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
+}
+
+setInterval(createHeart, 800);
+createCats();
+
+// Click hearts on tap/click
+document.addEventListener('click', (e) => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '💖';
+    heart.style.left = e.pageX + 'px';
+    heart.style.top = e.pageY + 'px';
+    heart.style.fontSize = (5 + Math.random() * 5) + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 2000);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Mey Mey 💕</title>
+<style>
+/* --- Reset and body --- */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background: radial-gradient(circle at top, #ffb6c1, #ff69b4);
+    overflow-x: hidden;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* --- Title --- */
+h1 {
+    margin-top: 10vh;
+    font-size: 6vw; /* responsive font size */
+    animation: floatText 2s infinite alternate;
+    text-shadow: 2px 2px 5px #ff69b4;
+}
+
+/* --- Float animation --- */
+@keyframes floatText {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-1.5vh); }
+}
+
+/* --- Buttons container --- */
+.buttons {
+    margin-top: 5vh;
+    position: relative;
+}
+
+/* --- Buttons styling --- */
+button {
+    padding: 1em 2em;
+    font-size: 4vw; /* responsive */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: #ff4da6;
+    color: white;
+    font-weight: bold;
+}
+
+#noBtn {
+    background-color: #888;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Floating cats --- */
+.cat {
+    position: absolute;
+    font-size: 8vw; /* responsive size */
+    pointer-events: none;
+    user-select: none;
+}
+
+/* --- Floating hearts --- */
+.heart {
+    position: absolute;
+    font-size: 6vw; /* responsive size */
+    pointer-events: none;
+    user-select: none;
+    animation: floatHeart 3s linear forwards;
+}
+
+@keyframes floatHeart {
+    from { transform: translateY(0) scale(1); opacity: 1; }
+    to { transform: translateY(-20vh) scale(1.5); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<h1>Mey Mey, will you be my Valentine? 🥰💖</h1>
+
+<div class="buttons">
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">NO 😼</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+let yesSize = 4; // initial vw
+
+/* --- Make NO button run away --- */
+noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    yesSize += 1; // increase font size slightly
+    yesBtn.style.fontSize = yesSize + "vw";
+});
+
+/* --- YES button redirects to gallery --- */
+yesBtn.addEventListener("click", () => {
+    window.location.href = "Mey2.html";
+});
+
+/* --- Floating cats --- */
+function createCats() {
+    for (let i = 0; i < 10; i++) {
+        const cat = document.createElement("div");
+        cat.classList.add("cat");
+        cat.innerHTML = "🐱";
+        cat.style.left = Math.random() * 90 + "vw";
+        cat.style.top = Math.random() * 90 + "vh";
+        cat.style.animation = floatCat ${(5 + Math.random() * 5)}s linear infinite;
+        document.body.appendChild(cat);
+    }
+}
+
+/* Float cat animation using JS */
+const styleSheet = document.createElement("style");
+styleSheet.innerHTML = `
+@keyframes floatCat {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}`;
+document.head.appendChild(styleSheet);
+
+/* --- Floating hearts --- */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 90 + "vw";
+    heart.style.top = Math.random() * 90 + "vh";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
+}
+
+/* --- Initialize --- */
+createCats();
+setInterval(createHeart, 500);
+</script>
+</body>
+</html>
